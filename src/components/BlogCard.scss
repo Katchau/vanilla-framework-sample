@@ -1,0 +1,14 @@
+.blog-card {
+    display: flex;
+    flex-direction: column;
+
+    .blog-content {
+        display: flex;
+        flex-direction: column;
+        height: 100%;
+
+        p {
+            margin-top: auto;
+        }
+    }
+}

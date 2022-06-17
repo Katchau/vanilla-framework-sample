@@ -1,54 +1,63 @@
-import logo from './logo.svg';
 import './App.scss';
-import React from 'react';
+import BlogCard from './components/BlogCard';
+import { useEffect, useState } from 'react';
 
 const API_REQUEST = "https://people.canonical.com/~anthonydillon/wp-json/wp/v2/posts.json";
 
-class App extends React.Component {
-  loading: boolean = false;
-  blogData: any[] = [];
+function App () {
+  let [loading, setLoading] = useState(true);
+  let [blogData, setBlogData] = useState([]);
 
-  constructor(props: {}) {
-    super(props);
 
-    this.loading = true;
-    fetch(API_REQUEST)
-      .then((response) => {
-        response.json().then((data) => {
-          this.blogData = data;
-          console.log('hmm', data);
-        });
-      })
-      .finally(() => {
-        this.loading = false;
-      })
-  }
+  useEffect(() => {
+    async function fetchData() {
+      const response = await fetch(API_REQUEST);
+      const data = await response.json();
+      setBlogData(data);
+      setLoading(false);
+    }
+    fetchData();
+  }, []);
 
-  render(): JSX.Element {
-    return (
-      <main className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <p>
-            Edit <code>src/App.tsx</code> and save to reload. Coiso
-          </p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
-        </header>
-        <section className='p-strip is-shallow'>
-          <div className='row'>
-            Coiso
+
+  function BodyData() {
+    if (loading) {
+      return (
+        <div className='row'>
+          <div className='col-12'>
+            Loading assets...
+            <i className="p-icon--spinner u-animation--spin"></i> 
           </div>
-        </section>
-      </main>
-    );
+        </div>
+      );
+    } else {
+      return (
+        <div className='row'>
+          {blogData.map((blog, index) => (
+            <BlogCard blog={blog} key={index} />
+          ))}
+        </div>
+      );
+    }
   }
+
+
+  return (
+    <main className="app">
+      <header className="app-header p-strip--suru-topped">
+        <div className="row u-vertically-center">
+          <div className="col-8">
+            <h2>Canonical Vanilla Framework Challenge</h2>
+          </div>
+        </div>
+      </header>
+      <section className='p-strip is-shallow'>
+        {/* aqui tinha u-equal-height e u-clearfix */}
+        <BodyData />
+      </section>
+    </main>
+  );
+  
 }
 
 export default App;

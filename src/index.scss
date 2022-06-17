@@ -1,14 +1,17 @@
+$color-suru-start: rgb(83, 0, 65) ;
+$color-suru-middle: rgba(197, 66, 160, 0.884) ;
+$color-suru-end: rgba(205, 144, 147, 0.774) ;
+
 @import "vanilla-framework";
 
 @include vanilla;
 
 @mixin defaultText() {
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
+  font-family: "Ubuntu", -apple-system, "Segoe UI", "Roboto", "Oxygen", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   font-size: 1rem;
+  font-weight: 300;
 }
 
 body {
