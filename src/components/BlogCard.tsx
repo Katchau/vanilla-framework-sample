@@ -28,7 +28,7 @@ function BlogCard({blog}: {blog: any}) {
         // p-card--highlighted would almost work if not for the separators
         <div className='col-4 blog-card'>
             <header className='blog-header'>
-            {/* className='p-muted-heading' seems too small */}
+            {/* className='p-muted-heading' seems too small otherwise would work*/}
                 <h5 className='u-no-margin--bottom u-no-padding--top'>
                     {getTopicName()}
                 </h5>
