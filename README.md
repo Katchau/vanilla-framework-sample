@@ -1,5 +1,7 @@
 # Joao Loureiro Sample VanillaFramework App
 
+Before running this React Project please install all dependencies using npm i.
+
 ### `npm start`
 
 Runs the app in the development mode.\
