@@ -2,13 +2,48 @@
     display: flex;
     flex-direction: column;
 
+    
+    box-shadow: rgba(0, 0, 0, 0.25) 0px 5px 10px;
+    // styling from p-card--highlighted
+    // box-shadow: 0 1px 1px 0 rgb(0 0 0 / 15%), 0 2px 2px -1px rgb(0 0 0 / 15%), 0 0 3px 0 rgb(0 0 0 / 20%);
+    border-radius: 0.125rem;
+    margin-bottom: 1.5rem;
+    overflow: auto;
+
+    .blog-header {
+        border-top: 3px solid rgb(168, 124, 160);
+        padding: 0.6rem 1rem 0.5rem;
+    
+        h5 {
+            text-transform: uppercase;
+            font-size: 0.9rem;
+            font-weight: 300;
+        }
+    }
     .blog-content {
         display: flex;
         flex-direction: column;
         height: 100%;
 
+        margin: 0 0.5rem;
+        padding: 0.6rem 0.5rem 0.8rem;
+        border-top: 1px dotted #d9d9d9;
+        border-bottom: 1px dotted #d9d9d9;
+
+        a {
+            font-weight: 300;
+        }
+
         p {
             margin-top: auto;
+        }
+    }
+
+    .blog-footer {
+        padding: 1rem;
+
+        p {
+            font-size: 0.9rem;
         }
     }
 }

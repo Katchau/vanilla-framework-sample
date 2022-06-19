@@ -25,12 +25,16 @@ function BlogCard({blog}: {blog: any}) {
     }
 
     return (
-        <div className='col-4 p-card blog-card'>
+        // p-card--highlighted would almost work if not for the separators
+        <div className='col-4 blog-card'>
             <header className='blog-header'>
-                {getTopicName()}
+            {/* className='p-muted-heading' seems too small */}
+                <h5 className='u-no-margin--bottom u-no-padding--top'>
+                    {getTopicName()}
+                </h5>
             </header>
             <div className='blog-content'>
-                <div className='u-crop--16-9'>
+                <div>
                     <a href={blog.link} target='_blank' rel="noreferrer">
                         <img className='p-card__image' src={blog.featured_media} alt="blog-img" />
                     </a>
@@ -40,7 +44,7 @@ function BlogCard({blog}: {blog: any}) {
                         {blog.title.rendered}
                     </a>
                 </h4>
-                <p>
+                <p className='u-no-margin--bottom u-no-padding--top'>
                     <em>
                         By {' '}
                         <a href={getAuthorInfo().link} target='_blank' rel="noreferrer">
@@ -51,7 +55,9 @@ function BlogCard({blog}: {blog: any}) {
                 </p>
             </div>
             <footer className='blog-footer'>
-                {getCategoryName()}
+                <p className='u-no-padding u-no-margin'>
+                    {getCategoryName()}
+                </p>
             </footer>
         </div>
     );
